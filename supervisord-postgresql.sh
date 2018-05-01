@@ -3,9 +3,9 @@
 # Exit immediately if a simple command exits with a non-zero status
 set -e
 
-POSTGRESQL_BIN=/usr/lib/postgresql/9.5/bin/postgres
-POSTGRESQL_CONFIG_FILE=/etc/postgresql/9.5/main/postgresql.conf
-POSTGRESQL_DATA=/var/lib/postgresql/9.5/main
+POSTGRESQL_BIN=/usr/lib/postgresql/9.3/bin/postgres
+POSTGRESQL_CONFIG_FILE=/etc/postgresql/9.3/main/postgresql.conf
+POSTGRESQL_DATA=/var/lib/postgresql/9.3/main
 POSTGRESQL_SINGLE="sudo -u postgres $POSTGRESQL_BIN --single --config-file=$POSTGRESQL_CONFIG_FILE"
 
 # If there is no postgresql data directory, create the directory and set config data path
