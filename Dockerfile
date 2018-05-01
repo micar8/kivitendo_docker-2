@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
     libfile-copy-recursive-perl postgresql libalgorithm-checkdigits-perl \
     libcrypt-pbkdf2-perl git libcgi-pm-perl build-essential \
-    sed supervisor aqbanking-tools poppler-utils
+    sed supervisor aqbanking-tools poppler-utils libfile-mimeinfo-perl
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
@@ -36,6 +36,7 @@ RUN cpan Image::Info
 RUN cpan Algorithm::CheckDigits
 RUN cpan PBKDF2::Tiny
 RUN cpan CGI
+RUN cpan File::MimeInfo
 
 # ADD KIVITENDO
 # Kivitendo intallation
