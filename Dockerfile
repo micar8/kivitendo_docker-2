@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Daniel Binggeli <db@xbe.ch>
 
-#01.05.2018 Update to Kivitendo 3.2.0
+#01.05.2018 Kivitendo 3.2.0
 
 # parameter 
 # Change this values to your preferences
