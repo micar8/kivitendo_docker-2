@@ -11,8 +11,6 @@ ENV locale de_DE
 ENV postrespassword docker
 
 
-
-
 #Packages 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get -qq update && apt-get -y upgrade
@@ -25,20 +23,23 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     librose-db-perl librose-object-perl libsort-naturally-perl libpq5 \
     libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
     libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
-    libfile-copy-recursive-perl postgresql git build-essential \
-    libgd-gd2-perl libimage-info-perl sed supervisor libgd-gd2-perl
+	libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
+    libfile-copy-recursive-perl postgresql libalgorithm-checkdigits-perl \
+	libcrypt-pbkdf2-perl git libcgi-pm-perl git build-essential \
+    sed supervisor aqbanking-tools poppler-utils
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
 #Install missing Perl Modules
 RUN cpan HTML::Restrict
 RUN cpan Image::Info
-
+RUN cpan Algorithm::CheckDigits
+RUN cpan PBKDF2::Tiny
 
 # ADD KIVITENDO
 # Kivitendo intallation
 RUN git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp
-RUN cd /var/www/kivitendo-erp && git checkout release-3.2.0
+RUN cd /var/www/kivitendo-erp && git checkout release-3.5.1
 ADD kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf
 
 #Check Kivitendo installation
@@ -116,6 +117,7 @@ RUN chmod -R +x /var/www/kivitendo-erp/
 
 #Perl Modul im Apache laden
 RUN a2enmod cgi.load
+RUN a2enmod fcgid.load
 
 EXPOSE 80
  
