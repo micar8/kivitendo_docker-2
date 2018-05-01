@@ -7,13 +7,11 @@ Docker Build for Kivitendo a erp solution for small businesses
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Contributing](#contributing)
-- [Reporting Issues](#reporting-issues)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Creating User and Database at Launch](creating-user-and-database-at-launch)
 - [Configuration](#configuration)
     - [Data Store](#data-store)
+    - [Securing the server](#securing-the-server)
 - [Upgrading](#upgrading)
 
 # Introduction
