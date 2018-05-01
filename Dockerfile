@@ -23,9 +23,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     librose-db-perl librose-object-perl libsort-naturally-perl libpq5 \
     libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
     libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
-	libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
+    libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
     libfile-copy-recursive-perl postgresql libalgorithm-checkdigits-perl \
-	libcrypt-pbkdf2-perl git libcgi-pm-perl git build-essential \
+    libcrypt-pbkdf2-perl git libcgi-pm-perl git build-essential \
     sed supervisor aqbanking-tools poppler-utils
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
