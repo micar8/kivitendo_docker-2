@@ -27,7 +27,7 @@ Will install Postgres and Apache2 and all the necessary packages for Kivitendo.
 Pull the latest version of the image from the docker index. 
 
 ```bash
-docker pull micar8/kivitendo_docker
+docker pull micar8/kivitendo_docker-1
 ```
 
 
