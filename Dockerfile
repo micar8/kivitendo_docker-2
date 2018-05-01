@@ -35,6 +35,7 @@ RUN cpan HTML::Restrict
 RUN cpan Image::Info
 RUN cpan Algorithm::CheckDigits
 RUN cpan PBKDF2::Tiny
+RUN cpan CGI
 
 # ADD KIVITENDO
 # Kivitendo intallation
