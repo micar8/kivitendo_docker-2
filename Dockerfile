@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Daniel Binggeli <db@xbe.ch>
 
-#01.05.2018 Update to Kivitendo 3.5.1
+#01.05.2018 Update to Kivitendo 3.2.0
 
 # parameter 
 # Change this values to your preferences
@@ -40,7 +40,7 @@ RUN cpan CGI
 # ADD KIVITENDO
 # Kivitendo intallation
 RUN git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp
-RUN cd /var/www/kivitendo-erp && git checkout release-3.5.1
+RUN cd /var/www/kivitendo-erp && git checkout release-3.2.0
 ADD kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf
 
 #Check Kivitendo installation
