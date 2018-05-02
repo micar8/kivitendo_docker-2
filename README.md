@@ -15,6 +15,7 @@ Docker Build for Kivitendo a erp solution for small businesses.
     - [Data Store](#data-store)
     - [Securing the server](#securing-the-server)
 - [Upgrading](#upgrading)
+- [Start](#start)
 
 # Introduction
 
@@ -98,3 +99,8 @@ docker pull micar8/kivitendo_docker-1:latest
 ```bash
 docker run --name <name_of_your_container> -d [OPTIONS] micar8/kivitendo_docker-1:latest
 ```
+
+
+# Start
+
+Browser: http://"ipadress":"port"/kivitendo-erp/
