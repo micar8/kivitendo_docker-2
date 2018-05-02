@@ -6,6 +6,7 @@ Docker Build for Kivitendo a erp solution for small businesses.
  - Postgresql 9.3
  - Kivitendo 3.5.0
 
+
 # Table of Contents
 
 - [Introduction](#introduction)
@@ -17,10 +18,13 @@ Docker Build for Kivitendo a erp solution for small businesses.
 - [Upgrading](#upgrading)
 - [Start](#start)
 
+
+
 # Introduction
 
 Dockerfile to build a Kivitendo container image which can be linked to other containers.
 Will install Postgres and Apache2 and all the necessary packages for Kivitendo.
+
 
 
 # Installation
@@ -30,6 +34,7 @@ Pull the latest version of the image from the docker index.
 ```bash
 docker pull micar8/kivitendo_docker-1
 ```
+
 
 
 # Quick Start
@@ -52,7 +57,10 @@ To test if the postgresql server is working properly, try connecting to the serv
 psql -U postgres -h $(docker inspect --format {{.NetworkSettings.IPAddress}} <name_of_your_container>)
 ```
 
+
+
 # Configuration
+
 
 ## Data Store
 
@@ -67,6 +75,7 @@ docker run --name <name_of_your_container> -d \
 
 This will make sure that the data stored in the database is not lost when the image is stopped and started again.
 
+
 ## Securing the server
 
 By default 'docker' is assigned as password for the postgres user. 
@@ -76,6 +85,7 @@ You can change the password of the postgres user
 psql -U postgres -h $(docker inspect --format {{.NetworkSettings.IPAddress}} <name_of_your_container>)
 \password postgres
 ```
+
 
 
 # Upgrading
@@ -99,6 +109,7 @@ docker pull micar8/kivitendo_docker-1:latest
 ```bash
 docker run --name <name_of_your_container> -d [OPTIONS] micar8/kivitendo_docker-1:latest
 ```
+
 
 
 # Start
