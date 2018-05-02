@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
 
+# forked from drnoa/kivitendo_docker:
 MAINTAINER Daniel Binggeli <db@xbe.ch>
 
 #01.05.2018 Kivitendo 3.5.2
