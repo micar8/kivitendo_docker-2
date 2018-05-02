@@ -64,15 +64,7 @@ psql -U postgres -h $(docker inspect --format {{.NetworkSettings.IPAddress}} <na
 
 ## Data Store
 
-For data persistence a volume should be mounted at `/var/lib/postgresql`.
-
-The updated run command looks like this.
-
-```bash
-docker run --name <name_of_your_container> -d \
-  -v /opt/postgresql/data:/var/lib/postgresql micar8/kivitendo_docker-1:latest
-```
-
+For data persistence a volume is mounted at `/var/lib/postgresql`.
 This will make sure that the data stored in the database is not lost when the image is stopped and started again.
 
 
@@ -112,6 +104,6 @@ docker run --name <name_of_your_container> -d [OPTIONS] micar8/kivitendo_docker-
 
 
 
-# Start
+# Start the app
 
 Browser: http://"ipadress":"port"/kivitendo-erp/
