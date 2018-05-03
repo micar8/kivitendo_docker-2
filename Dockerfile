@@ -28,7 +28,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     libfile-copy-recursive-perl postgresql libalgorithm-checkdigits-perl \
     libcrypt-pbkdf2-perl git libcgi-pm-perl build-essential \
     sed supervisor aqbanking-tools poppler-utils libfile-mimeinfo-perl \
-    libtext-unidecode-perl
+    libtext-unidecode-perl texlive-base-bin texlive-latex-recommended \
+    texlive-fonts-recommended texlive-latex-extra texlive-lang-german \
+    texlive-generic-extra
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
