@@ -130,7 +130,7 @@ EXPOSE 80
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
  
 # Add VOLUMEs to allow backup of config, logs and databases
-VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql", "/var/log/apache2"]
+VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql", "/var/log/apache2", "/var/www/kivitendo-erp/templates", "/var/www/kivitendo-erp/config", "/home"]
 
 
 # Scripts
