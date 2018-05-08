@@ -30,7 +30,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     sed supervisor aqbanking-tools poppler-utils libfile-mimeinfo-perl \
     libtext-unidecode-perl texlive-base-bin texlive-latex-recommended \
     texlive-fonts-recommended texlive-latex-extra texlive-lang-german \
-    texlive-generic-extra
+    texlive-generic-extra postgresql-contrib
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
@@ -42,6 +42,11 @@ RUN cpan PBKDF2::Tiny
 RUN cpan CGI
 RUN cpan File::MimeInfo
 RUN cpan Text::Unidecode
+RUN cpan Sys::CPU
+RUN cpan Thread::Pool::Simple
+RUN cpan LWP::Authen::Digest
+RUN cpan LWP::UserAgent
+
 
 # ADD KIVITENDO
 # Kivitendo intallation
