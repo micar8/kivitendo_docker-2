@@ -113,6 +113,8 @@ Browser: http://"ipadress":"port"/kivitendo-erp/
 
 
 # ToDo´s
-- in /etc/apache2/conf.d/phppgadmin delete "#" in front of "allow from all"
-- config Taskserver for autostartup  (see manual)
-- kivitendo-config
+- Export old DB: pg_dumpall -h localhost -U docker > dump.sql
+- Import old DB: psql -h localhost -U docker < dump.sql
+- Import Templates Files
+- Configuration of Taskserver for autostartup  (see manual)
+- Adaptation kivitendo-config
