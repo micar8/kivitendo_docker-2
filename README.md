@@ -1,4 +1,4 @@
-kivitendo_docker
+experimental kivitendo_docker
 ================
 
 Docker Build for Kivitendo a erp solution for small businesses.
