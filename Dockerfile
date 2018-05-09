@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 # forked from drnoa/kivitendo_docker:
 MAINTAINER Daniel Binggeli <db@xbe.ch>
