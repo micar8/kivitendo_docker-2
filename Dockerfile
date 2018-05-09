@@ -9,7 +9,7 @@ MAINTAINER Daniel Binggeli <db@xbe.ch>
 # Change this values to your preferences
 ENV postgresversion 9.3
 ENV locale de_DE
-ENV postrespassword docker
+ENV postgrespassword docker
 
 
 #Packages 
@@ -79,8 +79,8 @@ RUN pg_dropcluster --stop ${postgresversion} main && pg_createcluster --locale $
 # Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
 # then create a database `docker` owned by the ``docker`` role.
 RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD '${postrespassword}';" &&\
-    psql --command "CREATE USER kivitendo WITH SUPERUSER PASSWORD '${postrespassword}';" &&\
+    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD '${postgrespassword}';" &&\
+    psql --command "CREATE USER kivitendo WITH SUPERUSER PASSWORD '${postgrespassword}';" &&\
     createdb -O docker docker &&\
     createdb -O kivitendo kivitendo
 
