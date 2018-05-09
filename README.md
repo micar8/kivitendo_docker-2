@@ -19,6 +19,7 @@ Docker Build for Kivitendo a erp solution for small businesses.
     - [Securing the server](#securing-the-server)
 - [Upgrading](#upgrading)
 - [Start](#start)
+- [ToDo´s](#todo´s)
 
 
 
@@ -36,7 +37,6 @@ Pull the latest version of the image from the docker index.
 ```bash
 docker pull micar8/kivitendo_docker-1
 ```
-
 
 
 # Quick Start
@@ -109,3 +109,10 @@ docker run --name <name_of_your_container> -d [OPTIONS] micar8/kivitendo_docker-
 # Start the app
 
 Browser: http://"ipadress":"port"/kivitendo-erp/
+
+
+
+# ToDo´s
+- in /etc/apache2/conf.d/phppgadmin delete "#" in front of "allow from all"
+- config Taskserver for autostartup  (see manual)
+- kivitendo-config
