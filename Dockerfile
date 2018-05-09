@@ -42,7 +42,6 @@ RUN cpan PBKDF2::Tiny
 RUN cpan CGI
 RUN cpan File::MimeInfo
 RUN cpan Text::Unidecode
-RUN cpan Sys::CPU
 RUN cpan Thread::Pool::Simple
 RUN cpan LWP::Authen::Digest
 RUN cpan LWP::UserAgent
