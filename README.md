@@ -17,8 +17,8 @@ Browser: http://"ipadress":"port"/kivitendo-erp/
 
 
 # ToDo´s
-- Export old DB: pg_dumpall -h localhost -U docker > dump.sql
+- Export old DB: PGPASSWORD="docker" pg_dumpall -h localhost -U docker > dump.sql
 - Import old DB: psql -h localhost -U docker < dump.sql
-- Import Templates Files
+- Import templates & webdav Files
 - Configuration of Taskserver for autostartup  (see manual)
-- Adaptation kivitendo-config
+- Adaptation kivitendo-config (/var/www/kivitendo-erp/config/...)
