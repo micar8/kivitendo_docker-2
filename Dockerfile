@@ -59,8 +59,7 @@ RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installati
 
 # ADD WEBMIN
 # Add key
-RUN wget http://www.webmin.com/jcameron-key.asc
-RUN apt-key add jcameron-key.asc
+RUN apt-key adv --keyserver subkeys.pgp.net --recv-keys 11F63C51
 # Add Webmin´s repository.
 RUN echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
 # Install Webmin
