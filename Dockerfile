@@ -57,14 +57,14 @@ ADD kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf
 RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installation_check.pl
 
 
-# ADD WEBMIN
-# Add key
-RUN apt-key adv --keyserver subkeys.pgp.net --recv-keys 11F63C51
-# Add Webmin´s repository.
-RUN echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
-# Install Webmin
-RUN DEBIAN_FRONTEND=noninteractive apt-get update &&\
-    apt-get install -y webmin
+## ADD WEBMIN (deaktiviert)
+## Add key
+#RUN apt-key adv --keyserver subkeys.pgp.net --recv-keys 11F63C51
+## Add Webmin´s repository.
+#RUN echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
+## Install Webmin
+#RUN DEBIAN_FRONTEND=noninteractive apt-get update &&\
+#    apt-get install -y webmin
 
 
 # ADD POSTGRES
@@ -141,7 +141,8 @@ RUN a2enmod cgi.load
 RUN a2enmod fcgid.load
 
 EXPOSE 80
-EXPOSE 10000
+EXPOSE 443
+# EXPOSE 10000
  
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
@@ -161,7 +162,4 @@ RUN chmod +x /usr/local/bin/*.sh
 
 # By default, simply start apache.
 CMD ["/usr/local/bin/start.sh"]
-
-
-
 
