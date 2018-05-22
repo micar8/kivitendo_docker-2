@@ -59,7 +59,7 @@ RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installati
 
 ## ADD WEBMIN (deaktiviert)
 ## Add key
-#RUN apt-key adv --keyserver subkeys.pgp.net --recv-keys 11F63C51
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0xd97a3ae911f63c51
 ## Add Webmin´s repository.
 #RUN echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
 ## Install Webmin
