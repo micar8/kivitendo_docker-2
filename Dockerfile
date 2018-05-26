@@ -57,13 +57,23 @@ ADD kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf
 RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installation_check.pl
 
 
+## ADD WEBMIN (deaktiviert)
+## Add key
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0xd97a3ae911f63c51
+## Add Webmin´s repository.
+#RUN echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
+## Install Webmin
+#RUN DEBIAN_FRONTEND=noninteractive apt-get update &&\
+#    apt-get install -y webmin
+
+
 # ADD POSTGRES
 # Add the PostgreSQL PGP key to verify their Debian packages.
 # It should be the same key as https://www.postgresql.org/media/keys/ACCC4CF8.asc
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
 
 # Add PostgreSQL's repository. It contains the most recent stable release
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 
 # Install ``python-software-properties``, ``software-properties-common`` and PostgreSQL
 RUN DEBIAN_FRONTEND=noninteractive apt-get update &&\
@@ -131,6 +141,8 @@ RUN a2enmod cgi.load
 RUN a2enmod fcgid.load
 
 EXPOSE 80
+EXPOSE 443
+# EXPOSE 10000
  
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
@@ -150,7 +162,4 @@ RUN chmod +x /usr/local/bin/*.sh
 
 # By default, simply start apache.
 CMD ["/usr/local/bin/start.sh"]
-
-
-
 
