@@ -10,6 +10,7 @@ MAINTAINER Daniel Binggeli <db@xbe.ch>
 ENV postgresversion 9.5
 ENV locale de_DE
 ENV postgrespassword docker
+ENV DEBIAN_FRONTEND=noninteractive
 
 #Packages
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
