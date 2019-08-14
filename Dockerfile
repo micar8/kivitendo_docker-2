@@ -1,13 +1,13 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 # forked from drnoa/kivitendo_docker:
 MAINTAINER Daniel Binggeli <db@xbe.ch>
 
-#01.05.2018 Kivitendo 3.5.2
+#01.05.2018 Kivitendo 3.5.4
 
 # parameter 
 # Change this values to your preferences
-ENV postgresversion 9.3
+ENV postgresversion 9.5
 ENV locale de_DE
 ENV postgrespassword docker
 
@@ -45,6 +45,8 @@ RUN cpan Text::Unidecode
 RUN cpan Thread::Pool::Simple
 RUN cpan LWP::Authen::Digest
 RUN cpan LWP::UserAgent
+RUN cpan Set::Infinite List::UtilsBy DateTime::Set DateTime::Event::Cron Daemon::Generic DateTime::Event::Cron File::Flock File::Slurp
+RUN cpan Exception::Class
 
 
 # ADD KIVITENDO
