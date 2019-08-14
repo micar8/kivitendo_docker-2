@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # forked from drnoa/kivitendo_docker:
 MAINTAINER Daniel Binggeli <db@xbe.ch>
@@ -11,8 +11,7 @@ ENV postgresversion 9.5
 ENV locale de_DE
 ENV postgrespassword docker
 
-#Packages 
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+#Packages
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get -qq update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
