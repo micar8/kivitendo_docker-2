@@ -12,6 +12,7 @@ ENV locale de_DE
 ENV postgrespassword docker
 
 #Packages 
+RUN add-apt-repository universe
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get -qq update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
