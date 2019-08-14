@@ -55,6 +55,8 @@ RUN cpan LWP::Authen::Digest
 RUN cpan LWP::UserAgent
 RUN cpan Set::Infinite List::UtilsBy DateTime::Set DateTime::Event::Cron Daemon::Generic DateTime::Event::Cron File::Flock File::Slurp
 RUN cpan Exception::Class
+RUN cpan Path::Tiny File:Basedir File::DesktopEntry FCGI Rose::Db::Object  
+
 
 # ADD KIVITENDO
 # Kivitendo intallation
