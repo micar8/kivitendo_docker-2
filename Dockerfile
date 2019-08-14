@@ -37,6 +37,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
+RUN DEBIAN_FRONTEND=noninteractive update-mime-database /usr/share/mime && update-desktop-database
 
 #Install missing Perl Modules
 RUN cpan HTML::Restrict
