@@ -35,10 +35,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     libdatetime-event-cron-perl libexception-class-perl sed supervisor \
     texlive-base-bin texlive-latex-recommended \
     texlive-fonts-recommended texlive-latex-extra texlive-lang-german \
-    texlive-generic-extra mc phppgadmin build-essential libpq5
+    texlive-generic-extra mc phppgadmin libpq5
     
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
+RUN DEBIAN_FRONTEND=noninteractive apt install -y  build-essential
 RUN DEBIAN_FRONTEND=noninteractive update-mime-database /usr/share/mime && update-desktop-database
 
 #Install missing Perl Modules
