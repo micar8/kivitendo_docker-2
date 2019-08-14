@@ -10,7 +10,8 @@ MAINTAINER Daniel Binggeli <db@xbe.ch>
 ENV postgresversion 9.5
 ENV locale de_DE
 ENV postgrespassword docker
-ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #Packages
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
