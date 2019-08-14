@@ -11,7 +11,6 @@ ENV postgresversion 9.5
 ENV locale de_DE
 ENV postgrespassword docker
 
-
 #Packages 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get -qq update && apt-get -y upgrade
@@ -21,16 +20,21 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     libemail-address-perl  libemail-mime-perl libfcgi-perl libjson-perl \
     liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl \
     libparams-validate-perl libpdf-api2-perl librose-db-object-perl \
-    librose-db-perl librose-object-perl libsort-naturally-perl libpq5 \
+    librose-db-perl librose-object-perl libsort-naturally-perl \
     libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
     libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
     libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
     libfile-copy-recursive-perl libalgorithm-checkdigits-perl \
-    libcrypt-pbkdf2-perl git libcgi-pm-perl build-essential \
-    sed supervisor aqbanking-tools poppler-utils libfile-mimeinfo-perl \
-    libtext-unidecode-perl texlive-base-bin texlive-latex-recommended \
+    libcrypt-pbkdf2-perl git libcgi-pm-perl libtext-unidecode-perl libwww-perl  \
+    postgresql-contrib aqbanking-tools poppler-utils libhtml-restrict-perl\
+    libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl\
+    libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl\
+    libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
+    libdatetime-event-cron-perl libexception-class-perl sed supervisor \
+    texlive-base-bin texlive-latex-recommended \
     texlive-fonts-recommended texlive-latex-extra texlive-lang-german \
-    texlive-generic-extra mc phppgadmin
+    texlive-generic-extra mc phppgadmin build-essential libpq5
+    
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install language-pack-de-base
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
@@ -48,16 +52,14 @@ RUN cpan LWP::UserAgent
 RUN cpan Set::Infinite List::UtilsBy DateTime::Set DateTime::Event::Cron Daemon::Generic DateTime::Event::Cron File::Flock File::Slurp
 RUN cpan Exception::Class
 
-
 # ADD KIVITENDO
 # Kivitendo intallation
 RUN git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp
-RUN cd /var/www/kivitendo-erp && git checkout release-3.5.2
+RUN cd /var/www/kivitendo-erp && git checkout release-3.5.4
 ADD kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf
 
 #Check Kivitendo installation
 RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installation_check.pl
-
 
 # ADD POSTGRES
 # Add the PostgreSQL PGP key to verify their Debian packages.
@@ -98,7 +100,6 @@ RUN service postgresql restart
 # Expose the PostgreSQL port
 EXPOSE 5432
 
-
 # ADD APACHE
 # Run the rest of the commands as the ``root`` user
 USER root
@@ -121,7 +122,6 @@ RUN chmod u+rwx,g+rx,o+rx /var/www
 RUN find /var/www -type d -exec chmod u+rwx,g+rx,o+rx {} +
 RUN find /var/www -type f -exec chmod u+rw,g+rw,o+r {} +
 
-
 #Kivitendo rights
 RUN mkdir /var/www/kivitendo-erp/webdav
 RUN chown -R www-data /var/www/kivitendo-erp/users /var/www/kivitendo-erp/spool /var/www/kivitendo-erp/webdav
@@ -140,7 +140,6 @@ ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 # Add VOLUMEs to allow backup of config, logs and databases
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql", "/var/log/apache2", "/var/www/kivitendo-erp/users", "/var/www/kivitendo-erp/webdav", "/var/www/kivitendo-erp/templates", "/var/www/kivitendo-erp/config", "/home"]
 
-
 # Scripts
 ADD supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
 ADD supervisord-apache2.sh /usr/local/bin/supervisord-apache2.sh
@@ -149,10 +148,5 @@ ADD supervisord-postgresql.sh /usr/local/bin/supervisord-postgresql.sh
 ADD start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/*.sh
 
-
 # By default, simply start apache.
 CMD ["/usr/local/bin/start.sh"]
-
-
-
-
