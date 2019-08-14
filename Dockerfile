@@ -26,9 +26,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
     libfile-copy-recursive-perl libalgorithm-checkdigits-perl \
     libcrypt-pbkdf2-perl git libcgi-pm-perl libtext-unidecode-perl libwww-perl  \
-    postgresql-contrib aqbanking-tools poppler-utils libhtml-restrict-perl\
-    libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl\
-    libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl\
+    postgresql-contrib aqbanking-tools poppler-utils libhtml-restrict-perl \
+    libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl \
+    libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl \
     libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
     libdatetime-event-cron-perl libexception-class-perl sed supervisor \
     texlive-base-bin texlive-latex-recommended \
