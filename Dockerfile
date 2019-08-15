@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:14.04
 
 # forked from drnoa/kivitendo_docker:
 MAINTAINER Daniel Binggeli <db@xbe.ch>
@@ -139,6 +139,7 @@ RUN a2enmod cgi.load
 RUN a2enmod fcgid.load
 
 EXPOSE 80
+EXPOSE 443
  
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
